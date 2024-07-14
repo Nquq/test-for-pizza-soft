@@ -29,7 +29,10 @@ const EmployeePage: FC = () => {
 
 	useEffect(() => {
 		dispatch(fetchEmployees())
-		if (id) dispatch(fetchEmployeeById(+id))
+		if (id)
+			dispatch(fetchEmployeeById(+id)).then(response => {
+				if (response.meta.requestStatus === 'rejected') navigate('/', { replace: true })
+			})
 	}, [id])
 
 	const onSubmit: SubmitHandler<Employee> = data => {

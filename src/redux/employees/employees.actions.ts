@@ -22,7 +22,17 @@ export const fetchEmployeeById: AsyncThunk<number, number, { rejectValue: unknow
 	'employees/fetchEmployeeById',
 	async (id, { rejectWithValue }) => {
 		try {
-			const fakeResponse: number = await new Promise(resolve => setTimeout(() => resolve(id), 1000))
+			const employeesFromLocalStorage = localStorage.getItem('employees')
+			const idsFromLocalStorage = employeesFromLocalStorage
+				? JSON.parse(employeesFromLocalStorage).map((employee: Employee) => employee.id)
+				: []
+
+			const fakeResponse: number = await new Promise((resolve, reject) =>
+				setTimeout(() => {
+					if (idsFromLocalStorage.includes(id)) resolve(id)
+					else reject('Такого сотрудника не существует')
+				}, 1000)
+			)
 
 			return fakeResponse
 		} catch (error) {
