@@ -1,0 +1,164 @@
+.container {
+	width: calc(100vw - 24px);
+	height: calc(100vh - 24px);
+	background-color: rgb(255, 255, 255);
+	padding: 12px;
+	border-radius: 5px;
+	border: 1px solid rgb(0, 0, 0);
+	margin: 12px;
+
+	& > h1 {
+		font-size: 24px;
+		font-weight: 600;
+		margin-bottom: 12px;
+	}
+}
+
+.card {
+	display: grid;
+	grid-template: auto / 400px 1fr;
+}
+
+.photoContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.photo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+	height: 100%;
+	background-color: rgb(183, 183, 183);
+	border-radius: 5px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+
+	& > label {
+		font-size: 18px;
+	}
+
+	& > input {
+		width: 100%;
+		border: 1px solid rgb(0, 0, 0);
+		border-radius: 5px;
+		padding: 6px;
+		font-size: 16px;
+	}
+
+	& > select {
+		width: 100%;
+		border: 1px solid rgb(0, 0, 0);
+		border-radius: 5px;
+		padding: 6px;
+		font-size: 16px;
+	}
+}
+
+.button {
+	width: 100%;
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 5px;
+	padding: 6px;
+	font-size: 16px;
+
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	transition: background-color 0.4s ease-in-out, color 0.2s ease-in-out;
+
+	&:hover {
+		background-color: rgb(46, 46, 46);
+		color: rgb(255, 255, 255);
+	}
+}
+
+.disabledButton {
+	opacity: 0.5;
+
+	&:hover {
+		background-color: rgb(255, 255, 255);
+		color: rgb(0, 0, 0);
+	}
+}
+
+.checkbox {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+
+	& > label {
+		font-size: 18px;
+	}
+
+	& > input {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+.error {
+	color: rgb(255, 0, 0);
+	font-size: 14px;
+}
+
+.loaderContainer {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.buttons {
+	margin-top: 6px;
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		width: calc(100vw - 24px);
+		height: 100%;
+		margin: 12px;
+		& > h1 {
+			text-align: center;
+		}
+	}
+
+	.card {
+		grid-template: auto 1fr / 1fr;
+		gap: 12px;
+	}
+
+	.photo {
+		padding: 200px 150px;
+		width: 50%;
+		height: 80%;
+	}
+
+	.buttons {
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.button {
+		&:hover {
+			background-color: rgb(255, 255, 255);
+			color: rgb(0, 0, 0);
+		}
+	}
+}
+
+@media screen and (max-width: 358px) {
+	.photo {
+		padding: 100px 100px;
+	}
+}

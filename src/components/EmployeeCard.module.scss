@@ -1,0 +1,46 @@
+.card {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	background-color: rgb(255, 255, 255);
+	padding: 12px;
+	border-radius: 5px;
+	cursor: pointer;
+	border: 1px solid rgb(0, 0, 0);
+	transition: transform 0.2s ease-in-out;
+
+	&:hover {
+		transform: translate(0, -5px);
+	}
+}
+
+.side {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	height: 100px;
+	background-color: rgb(183, 183, 183);
+	border-radius: 5px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+
+	& > div {
+		font-size: 16px;
+		word-break: break-all;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.card {
+		flex-direction: column;
+	}
+
+	.info {
+		text-align: center;
+	}
+}
