@@ -82,7 +82,7 @@ const EmployeePage: FC = () => {
 						<InputMask
 							mask={'+7 (999) 999-99-99'}
 							placeholder='+7 (999) 999-99-99'
-							value={id && selectedEmployee?.phone}
+							defaultValue={id && selectedEmployee?.phone}
 							autoComplete='off'
 							{...register('phone', { required: true })}
 							{...() => (<input type='tel' id='phone' />) as ReactNode}
